@@ -8,5 +8,6 @@
       "Bash(bundle exec jekyll build:*)",
       "Bash(ls:*)"
     ]
-  }
+  },
+  "plansDirectory": "./_plans"
 }
