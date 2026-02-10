@@ -10,7 +10,7 @@ The interesting thing about this project wasn't just that I wrote the code—it 
 
 ## Phase 1: Building the Initial Application
 
-> \*"I want to build a simple to-do list application where I can add items and mark them as completed when finished. there should be a "+" sign to add new items. when you click on this a dialog button pops up for you to enter text. there is a checkmark to mark items as completed. one an item is marked as completed it is moved to a separate "completed" tab. there is also an "X" button to delete a todo item. when the "X" is clicked an "Are you sure?" dialog pops up and if the user confirms, the item is deleted. for this phase you can store all data in memory on the client. Create a plan.
+> I want to build a simple to-do list application where I can add items and mark them as completed when finished. there should be a "+" sign to add new items. when you click on this a dialog button pops up for you to enter text. there is a checkmark to mark items as completed. one an item is marked as completed it is moved to a separate "completed" tab. there is also an "X" button to delete a todo item. when the "X" is clicked an "Are you sure?" dialog pops up and if the user confirms, the item is deleted. for this phase you can store all data in memory on the client. Create a plan.
 
 ### What I Did
 
@@ -42,7 +42,7 @@ The result was a fully functional todo app with local state management. Everythi
 
 ## Phase 2: Adding Database Persistence
 
-> _"Now add a backend server and database to persist the todos. For now we can use SQLite. each operation should have its own REST API, for example adding a todo, marking it completed, and deleting it. If there is an error then an error dialog should be shown in the client app. Create a plan."_
+> Now add a backend server and database to persist the todos. For now we can use SQLite. each operation should have its own REST API, for example adding a todo, marking it completed, and deleting it. If there is an error then an error dialog should be shown in the client app. Create a plan.
 
 ### What I Did
 
@@ -83,7 +83,7 @@ This pattern makes the app feel instant while maintaining data integrity.
 
 ## Phase 3: Adding Drag-and-Drop Sorting
 
-> _"Now add drag and drop reordering to the todo lists by adding a new column to the database called sort_order. When a new todo item is added, it is added to the top of the list. When you drag and drop items the sort_order is updated appropriately. Make sure to use atomic updates in SQL to account for concurrency. Don't fetch a record, update it, and save it back. Create a plan." _
+> Now add drag and drop reordering to the todo lists by adding a new column to the database called sort_order. When a new todo item is added, it is added to the top of the list. When you drag and drop items the sort_order is updated appropriately. Make sure to use atomic updates in SQL to account for concurrency. Don't fetch a record, update it, and save it back. Create a plan."
 
 ### What I Did
 
@@ -121,7 +121,7 @@ The trickiest part was getting the sort order algorithm right. It needed to hand
 
 ## Phase 4: Comprehensive Testing
 
-> _"The app is working correctly currently. But there are no tests. Please write tests for both the frontend and backend. Do not change any of the working code unless you find a bug. Create a plan."_
+> The app is working correctly currently. But there are no tests. Please write tests for both the frontend and backend. Do not change any of the working code unless you find a bug. Create a plan.
 
 ### What I Did
 
@@ -188,7 +188,7 @@ Several issues came up during test implementation:
 
 ## Phase 5: Documentation
 
-> _"Now create a README in the root folder of this project. Explain that this is a todo app completely written by Claude, designed to show how you can do 'hands off the wheel' development with Claude."_
+> Now create a README in the root folder of this project. Explain that this is a todo app completely written by Claude, designed to show how you can do 'hands off the wheel' development with Claude.
 
 ### What I Did
 
