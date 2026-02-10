@@ -31,9 +31,14 @@ linkedin_username: natewiger
 
 # Build settings
 permalink: /:year/:month/:day/:title/
-theme: minima
+paginate: 5
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-paginate
+
+# theme: owner/name --> Don't forget to remove/comment the gem-based theme option
+remote_theme: "chesterhow/tale"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
