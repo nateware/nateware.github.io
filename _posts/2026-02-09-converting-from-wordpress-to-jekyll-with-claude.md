@@ -1,18 +1,16 @@
 ---
 layout: post
-title: "Converting from Wordpress to Jekyll with Claude"
+title: "✍🏼 Converting from Wordpress to Jekyll with Claude"
 date: 2026-02-09 12:00:00 -0800
 categories:
 tags:
 ---
 
-## So much drudgery
-
-I've used Wordpress for many many years, but I got to the point where I was tired of paying $100/year for a blog that gets a few hundred visits per month. Sure, it's not a lot of money, but it still feels like overkill. I've played around with static site generators like [Jekyll](https://jekyllrb.com/) but have always dreaded the amount of time it would take to convert my existing blog. I'd have to download the existing Wordpress articles, port them to Markdown, change all the image links, make sure code was formatted correctly, etc, etc.
-
-Then I realized one evening: Why would I do this in the age of AI? Enter Claude Code.
+I've used Wordpress for many many years, but I got to the point where I was tired of paying $100/year for a blog that gets a few hundred visits per month. I've played around with static site generators like [Jekyll](https://jekyllrb.com/) but have always dreaded the amount of time it would take to convert my existing Wordpress blog. Then I realized one evening: Why would I do this myself in the age of AI? Enter Claude Code.
 
 ## The Prompt
+
+Converting a blog is a major PITA. You have to download the existing Wordpress articles, port them to Markdown, change all the image links, make sure code is formatted correctly, etc, etc. Certainly I could get Claude to do this for me? What I didn't expect was it would do a much better job than me in a fraction of the time.
 
 I followed the [GitHub Pages Quickstart](https://docs.github.com/en/pages/quickstart) to setup a fresh repo for my new blog. At this point it was just a skeleton with no content. Then I opened it in Claude Code and issued this prompt:
 

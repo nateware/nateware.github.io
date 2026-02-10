@@ -1,20 +1,16 @@
 ---
 layout: post
-title: "Nate's Stock Market Theory of Management"
+title: "📈 Nate's Stock Market Theory of Management"
 date: 2019-07-09 12:00:00 -0800
 categories: leadership
 tags: leadership
 ---
 
-I'm a fan of simplifying as much as possible. One strategy I love to use is analogies.
+Life at a fast-moving company is full of swings, highs, and lows. But managers often fail in one of their most important responsibilities: providing stability for their teams. Managing teams is like stock market investing. Here's how.
 
-I'm sure you've heard the phrase "it's like riding a bicycle". We all know what that means -- once you've learned a skill, you can take a break from it, but regain it quickly if you start again later. Saying "it's like riding a bicycle" encompasses not only this concept, but brings along a richness of emotion. Those summer days as a kid, riding your bike to the pool to meet up with some friends, maybe to grab an ice cream afterwards.
+In software, there may be launches, bugs, or service outages that cause different individuals in the organization to go back and forth rapidly. In operations, there can be holiday sales, labor strikes, or equipment issues that cause huge variations in day-to-day work. This churn is often visible, through email escalations, phone alerts, or literal flashing red lights.
 
-## Managing teams is like stock market investing
-
-Life at a fast-moving company is full of swings, highs, and lows. In software, there may be launches, bugs, or service outages that cause different individuals in the organization to go back and forth rapidly. In operations, there can be holiday sales, labor strikes, or equipment issues that cause huge variations in day-to-day work. This churn is often visible, through email escalations, phone alerts, or literal flashing red lights.
-
-Managers often fail in one of their most important responsibilities: providing stability for their teams. As a manager, you are guiding your teams, helping them release products and triage issues. But, you're not sitting side-by-side with every engineer, experiencing every bug fix with them. Your job is to smooth out bumps and valleys, and keep the team together as a unit. In times of crisis, you are there to calm them. In times of change, you are there to guide them through.
+As a manager, you are guiding your teams, helping them release products and triage issues. But, you're not sitting side-by-side with every engineer, experiencing every bug fix with them. Your job is to smooth out bumps and valleys, and keep the team together as a unit. In times of crisis, you are there to calm them. In times of change, you are there to guide them through.
 
 **You are a smoothing function, like a moving average in a stock market graph.**
 

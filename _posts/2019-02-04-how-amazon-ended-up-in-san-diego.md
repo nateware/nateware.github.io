@@ -1,12 +1,14 @@
 ---
 layout: post
-title: "How Amazon Ended Up in San Diego"
+title: "🏄‍♂️ How Amazon Ended Up in San Diego"
 date: 2019-02-04 12:00:00 -0800
 categories: leadership
 tags: leadership
 ---
 
-One of my favorite career accomplishments so far was founding the Amazon San Diego office. I wrote the 6-pager proposal about the city and presented it to Amazon VP/SVPs to gain approval. I was employee #1 in the office, hiring a team that grew to 300+ people in less than 3 years. I chose all three locations -- first the temp space in Solana Beach, then the interim space in UTC, then the final office at Campus Point where the office lives today. I got to meet the mayor and be interviewed on TV which was a ton of fun. You can read all about it in this [Amazon Day One blog article](https://blog.aboutamazon.com/working-at-amazon/how-amazon-ended-up-in-san-diego). There's another more lighthearted article that talks about the space itself on [Hatch](http://www.hatch-mag.com/2018/12/18/inside-amazon-utc-area-tech-hub/).
+One of my favorite career accomplishments so far was founding the Amazon San Diego office. I wrote the 6-pager proposal and presented it to Amazon VP/SVPs to gain approval. I was employee #1 in the office, hiring a team that grew to 300+ people in less than 3 years (now it's >2,000). Here's a bit more of the behind the scenes.
+
+I chose all three locations -- first the temp space in Solana Beach, then the interim space in UTC, then the final office at Campus Point where the office lives today. I got to meet the mayor and be interviewed on TV which was a ton of fun. You can read all about it in this [Amazon Day One blog article](https://blog.aboutamazon.com/working-at-amazon/how-amazon-ended-up-in-san-diego). There's another more lighthearted article that talks about the space itself on [Hatch](http://www.hatch-mag.com/2018/12/18/inside-amazon-utc-area-tech-hub/).
 
 ![Amazon San Diego office](/assets/images/amazon-san-diego.jpeg)
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Atomic Rant"
+title: "☢️ An Atomic Rant"
 date: 2010-02-18 12:00:00 -0800
 categories: redis technology
 tags: atomicity redis ruby
@@ -54,7 +54,7 @@ Nope. Still screwed.
 
 It's worth understanding the root issue, and how to address it.
 
-Race conditions arise from the difference in time between *evaluating* and *altering* a value. In our example, we fetched the record, then checked the value, then changed it. The more lines of code between those operations, and the higher your user count, the bigger the window of opportunity for other clients to get the data in an inconsistent state.
+Race conditions arise from the difference in time between _evaluating_ and _altering_ a value. In our example, we fetched the record, then checked the value, then changed it. The more lines of code between those operations, and the higher your user count, the bigger the window of opportunity for other clients to get the data in an inconsistent state.
 
 Sometimes race conditions don't matter in practice, since often a user is only operating on their own data. This has a race condition, but is probably ok:
 

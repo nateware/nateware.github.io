@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Atomic Rant Redux"
+title: "☢️ Atomic Rant Redux"
 date: 2010-06-14 12:00:00 -0800
 categories: redis technology
 tags: atomicity aws redis ruby

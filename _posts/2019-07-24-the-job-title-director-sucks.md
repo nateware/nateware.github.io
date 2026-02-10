@@ -1,18 +1,16 @@
 ---
 layout: post
-title: "The Job Title Director Sucks"
+title: "🎬 The Job Title Director Sucks"
 date: 2019-07-24 12:00:00 -0800
 categories: leadership
 tags: leadership
 ---
 
-I loathe the term "Director", because it connotes the opposite behavior of what senior leaders should really be doing.
-
-A movie director tells every person what to do -- where to stand, how to act, which cameras should shoot from what angles, which lighting to use, and so forth. This works great for the movies, or theater, or dance, where you have a predefined script that you can start and stop at any moment.
+I loathe the term "Director", because it connotes the opposite behavior of what senior tech leaders should really be doing. A movie director tells every person what to do -- where to stand, how to act, which cameras should shoot from what angles, and so forth. This works great for the movies, but is a horrible mental model for fast-moving companies.
 
 ![steven-spielberg](/assets/images/steven-spielberg.jpg)
 
-This is a horrible analogy for fast-moving companies. First, you can't start and stop the action at any time. Second, it's not possible to have your arms around an entire product being developed. Even movie directors only shoot one scene at a time.
+First, you can't start and stop the action at any time. Maybe in the movies, or theater, or dance, where you have a predefined script that you can start and stop at any moment. But, it's not possible to have your arms around an entire software product being developed. Even movie directors only shoot one scene at a time.
 
 The other connotation of director is somebody who sets the overall direction. This is somewhat true, but at a fast-moving company with talented people, does one person really have all the good ideas? No.
 

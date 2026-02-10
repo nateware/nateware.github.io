@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Real-time Leaderboards with ElastiCache for Redis"
+title: "🎮 Real-time Leaderboards with ElastiCache for Redis"
 date: 2013-09-08 12:00:00 -0800
 categories: aws gaming redis
 tags: aws gaming redis ruby
@@ -78,7 +78,7 @@ Since we're going to have just a single leaderboard (rather than one per user), 
 puts User.leaderboard.members
 ```
 
-(**Important:** This *doesn't* have to be ActiveRecord -- you could use Mongoid or DataMapper or Sequel or Dynamoid or any other DB model.)
+(**Important:** This _doesn't_ have to be ActiveRecord -- you could use Mongoid or DataMapper or Sequel or Dynamoid or any other DB model.)
 
 We'll add a hook to update our leaderboard when we get a new high score. Since we now have a database table, we'll index our sorted set by our ID, since it's guaranteed to be unique:
 
@@ -133,6 +133,6 @@ Then:
 puts @user.my_rank   # 3
 ```
 
-Getting a numeric rank for a row in MySQL would require adding a new "rank" column, and then running a job that re-ranks the entire table. Doing this in real time means clobbering MySQL with a global re-rank every time *anyone's* score changes. This makes MySQL unhappy, especially with lots of users.
+Getting a numeric rank for a row in MySQL would require adding a new "rank" column, and then running a job that re-ranks the entire table. Doing this in real time means clobbering MySQL with a global re-rank every time _anyone's_ score changes. This makes MySQL unhappy, especially with lots of users.
 
 Kids are calling so that's all for now. Enjoy!

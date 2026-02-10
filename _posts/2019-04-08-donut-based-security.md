@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Donut Based Security at Amazon"
+title: "🍩 Donut Based Security at Amazon"
 date: 2019-04-08 12:00:00 -0800
 categories: leadership
 tags: leadership security
@@ -10,9 +10,11 @@ This is not a clever technical article where DONUT is some obscure new encryptio
 
 In the early days of the Amazon San Diego office, we were in an unsecured, shared office space with other companies. As such, it was crucial that people remembered to lock their screens whenever they left their computers, even if only for a few minutes. But, humans forget, and we needed a way to actively catch them and help correct their behavior.
 
-![Cyber theft](/assets/images/cyber-theft-1-728.jpg)
+![Cyber theft](/assets/images/cyber-theft-1-728.jpg){: height="140" style="float:left; margin-right: 10px"}
 
 A normal company probably would have put up posters and sent out emails about the importance of locking screens -- which would have been promptly deleted and ignored. Or had the managers reminding employees about the importance of security blah blah blah. Or created a 45-minute training video about the dangers of cybertheft with spooky looking cartoon bad guys.
+
+Of course, none of these work, and worse yet, they are BORING.
 
 ## What we did was this.
 

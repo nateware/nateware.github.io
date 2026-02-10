@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Advanced Game Analytics with AWS at GDC 2015"
+title: "🧮 Advanced Game Analytics with AWS at GDC 2015"
 date: 2015-03-28 12:00:00 -0800
 categories: aws gaming
 tags: analytics aws gaming

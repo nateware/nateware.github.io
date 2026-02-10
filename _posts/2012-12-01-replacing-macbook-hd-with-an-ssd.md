@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Replacing Macbook HD with an SSD"
+title: "💾 Replacing Macbook HD with an SSD"
 date: 2012-12-01 12:00:00 -0800
 categories: technology
 tags: laptop mac
