@@ -19,14 +19,15 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Nate Wiger vs Software
-email: natewareblog@gmail.com
+# email: natewareblog@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Nate Wiger's blog about software, technology, and people management, covering
   topics such as ruby, scalability, executive management, and humorous musings.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: nateware
+# twitter_username: nateware
 github_username: nateware
+linkedin_username: natewiger
 
 # Build settings
 permalink: /:year/:month/:day/:title/

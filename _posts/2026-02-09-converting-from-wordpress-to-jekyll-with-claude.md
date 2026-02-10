@@ -8,13 +8,13 @@ tags:
 
 ## So much drudgery
 
-I've used Wordpress for many many years, but I got to the point where I was tired of paying $100/year for a blog that gets a few hundred visits per month. Sure, it's not a lot of money, but it still feels like overkill. I've played around with static site generators like [Jekyll](https://jekyllrb.com/) but have always dreaded the amount of time it would take to convert my existing blog. I'd have to download the existing articles, port them to Markdown, change all the image links, etc, etc.
+I've used Wordpress for many many years, but I got to the point where I was tired of paying $100/year for a blog that gets a few hundred visits per month. Sure, it's not a lot of money, but it still feels like overkill. I've played around with static site generators like [Jekyll](https://jekyllrb.com/) but have always dreaded the amount of time it would take to convert my existing blog. I'd have to download the existing Wordpress articles, port them to Markdown, change all the image links, make sure code was formatted correctly, etc, etc.
 
 Then I realized one evening: Why would I do this in the age of AI? Enter Claude Code.
 
 ## The Prompt
 
-I followed the [GitHub Pages Quickstart](https://docs.github.com/en/pages/quickstart) to setup a fresh repo for my new blog. Then I opened it in Claude Code and issued this prompt:
+I followed the [GitHub Pages Quickstart](https://docs.github.com/en/pages/quickstart) to setup a fresh repo for my new blog. At this point it was just a skeleton with no content. Then I opened it in Claude Code and issued this prompt:
 
 > this is a personal blog written in jekyll. i want to convert my existing wordpress blog into jekyll posts. my blog is located at: nateware.com . for each post on my blog, please create a corresponding markdown file. respect any of the formatting in my existing blog - headers, code segments, links, etc. for each existing blog post, create a new jekyll markdown file in the \_posts directory formatted as YYYY-MM-DD-[slug from existing blog]. For example my blog article located at https://nateware.com/2010/02/18/an-atomic-rant/ should be downloaded, converted to markdown, and saved as \_posts/2010-02-18-an-atomic-rant.md. Create a plan
 
@@ -24,6 +24,10 @@ Claude then generated a plan so that for each post it would:
 2. Extract title, categories, and tags
 3. Convert HTML body to clean Markdown
 4. Write file to `_posts/YYYY-MM-DD-slug.md`
+
+It even added this step that I didn't ask for:
+
+- Add `permalink: /:year/:month/:day/:title/` to `_config.yml` to match existing WordPress URL structure for SEO/link preservation
 
 When it came to images, Claude came up with this strategy:
 
