@@ -38,6 +38,6 @@ The last one blew my mind - Claude was "smart" enough to detect that an image li
 
 ## The Results
 
-You're seeing it for yourself. Other than editing this blog post, I did no coding or conversion steps myself. Everything was automated via Claude Code.
+You're seeing it for yourself. Other than editing this blog post, I did no coding or conversion steps myself. Everything was automated via Claude Code. You can view the full repo at: [nateware.github.io](https://github.com/nateware/nateware.github.io)
 
 Up next is writing a full app "hands off the wheel" style. More to come...
