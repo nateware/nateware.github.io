@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "✍🏼 Converting from Wordpress to Jekyll with Claude"
+title: "✍🏼 Converting from Wordpress to GitHub Pages with Claude"
 date: 2026-02-09 12:00:00 -0800
 categories:
 tags:
