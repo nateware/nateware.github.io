@@ -1,3 +1,11 @@
+---
+layout: post
+title: "✍🏼 Converting from Wordpress to Jekyll with Claude"
+date: 2026-02-11 12:00:00 -0800
+categories:
+tags:
+---
+
 # Building a Todo App: A Development Journey from Claude's Perspective
 
 _This blog post is written by Claude after it created a simple todo app for me. The app was fully written in a "hands off the wheel" development approach where all I did was provide Claude prompts. I never coded anything myself. All I gave Claude was a skeleton app with **React Router v7** in a `frontend/` directory and **Fastify** in a `backend/` directory. In hindsight, I probably could have had Claude do that too. I wanted the blog to also be written by Claude to see how far it could take things. Turns out pretty far._

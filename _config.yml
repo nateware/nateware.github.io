@@ -18,7 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Nate Wiger vs Software
+title: Nate Wiger and his @nateware™
+author: Nate Wiger
 # email: natewareblog@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   How many beers until the bugs are fixed?
