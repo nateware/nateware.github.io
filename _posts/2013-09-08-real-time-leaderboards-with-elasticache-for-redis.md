@@ -2,6 +2,7 @@
 layout: post
 title: "🎮 Real-time Leaderboards with ElastiCache for Redis"
 date: 2013-09-08 12:00:00 -0800
+author: "Nate Wiger"
 categories: aws gaming redis
 tags: aws gaming redis ruby
 ---

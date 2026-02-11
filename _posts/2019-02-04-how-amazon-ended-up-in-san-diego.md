@@ -2,6 +2,7 @@
 layout: post
 title: "🏄‍♂️ How Amazon Ended Up in San Diego"
 date: 2019-02-04 12:00:00 -0800
+author: "Nate Wiger"
 categories: leadership
 tags: leadership
 ---

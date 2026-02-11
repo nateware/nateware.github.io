@@ -2,6 +2,7 @@
 layout: post
 title: "🍩 Donut Based Security at Amazon"
 date: 2019-04-08 12:00:00 -0800
+author: "Nate Wiger"
 categories: leadership
 tags: leadership security
 ---

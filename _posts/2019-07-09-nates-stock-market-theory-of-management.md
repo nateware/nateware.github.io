@@ -2,6 +2,7 @@
 layout: post
 title: "📈 Nate's Stock Market Theory of Management"
 date: 2019-07-09 12:00:00 -0800
+author: "Nate Wiger"
 categories: leadership
 tags: leadership
 ---

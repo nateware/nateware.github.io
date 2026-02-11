@@ -2,8 +2,9 @@
 layout: post
 title: "✍🏼 Converting from Wordpress to GitHub Pages with Claude"
 date: 2026-02-09 12:00:00 -0800
-categories:
-tags:
+author: "Nate Wiger"
+categories: ai technology
+tags: ai claude jekyll
 ---
 
 I've used Wordpress for many many years, but I got to the point where I was tired of paying $100/year for a blog that gets a few hundred visits per month. I've played around with static site generators like [Jekyll](https://jekyllrb.com/) but have always dreaded the amount of time it would take to convert my existing Wordpress blog. Then I realized one evening: Why would I do this myself in the age of AI? Enter Claude Code.

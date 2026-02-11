@@ -2,6 +2,7 @@
 layout: post
 title: "☢️ Atomic Rant Redux"
 date: 2010-06-14 12:00:00 -0800
+author: "Nate Wiger"
 categories: redis technology
 tags: atomicity aws redis ruby
 ---
