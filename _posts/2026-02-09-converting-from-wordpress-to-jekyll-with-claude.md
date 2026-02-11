@@ -31,7 +31,6 @@ When it came to images, Claude came up with this strategy:
 
 - Download images referenced in posts to `assets/images/`
 - Update markdown references to `/assets/images/filename.ext`
-- Posts with known images: donut-based-security, atomic-rant-redux, replacing-macbook-hd-with-an-ssd, how-amazon-ended-up-in-san-diego, stock-market-theory, the-job-title-director-sucks
 - 3 older images (replacing-macbook-ssd post) recovered from Wayback Machine since originals no longer on WordPress **(WHAT?!)**
 
 The last one blew my mind - Claude was "smart" enough to detect that an image link was broken, and rather than giving up, it knew to go to the wayback machine and find it from a previous snapshot. That's crazy. I don't think I would have even thought of that.
