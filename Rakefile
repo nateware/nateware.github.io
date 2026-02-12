@@ -33,4 +33,19 @@ task :backgrounds do
   File.write(output_file, js_content)
 
   puts "Backgrounds: Generated #{output_file} with #{image_files.length} images"
+  puts "*** Don't forget to run `rake sync_assets` to upload assets to the CDN! ***"
+end
+
+desc "Sync assets to Google Cloud Storage bucket"
+task :sync_assets do
+  bucket_name = "nateware-blog"
+  local_dir = File.join(Dir.pwd, 'assets')
+
+  puts "Syncing assets to Google Cloud Storage bucket: #{bucket_name}"
+  puts "Local directory: #{local_dir}"
+
+  # Run gsutil rsync command
+  command = "gcloud storage rsync #{local_dir} gs://#{bucket_name}/assets --recursive"
+  puts "Running command: #{command}"
+  system(command) || abort("Error: Failed to sync assets to GCS bucket.")
 end
