@@ -1,0 +1,28 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+
+  <!-- Fixed header styling -->
+  <link rel="stylesheet" href="{{ "/assets/css/fixedheader.css" | relative_url }}">
+
+  <!-- Random background images -->
+  <link rel="stylesheet" href="{{ "/assets/css/background.css" | relative_url }}">
+  <script src="{{ "/assets/js/backgrounds.js" | relative_url }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof BACKGROUND_IMAGES !== 'undefined' && BACKGROUND_IMAGES.length > 0) {
+        var randomIndex = Math.floor(Math.random() * BACKGROUND_IMAGES.length);
+        var selectedImage = BACKGROUND_IMAGES[randomIndex];
+        document.body.style.backgroundImage = 'url("' + selectedImage + '")';
+        document.body.classList.add('has-random-background');
+      }
+    });
+  </script>
+</head>

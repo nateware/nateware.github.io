@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Nate Wiger and his @nateware™
+title: Nate Wiger
 author: Nate Wiger
 # email: natewareblog@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -28,6 +28,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: nateware
 github_username: nateware
 linkedin_username: natewiger
+profile_image: /assets/images/nate-beach-profile.jpeg
 
 # Build settings
 permalink: /:year/:month/:day/:title/

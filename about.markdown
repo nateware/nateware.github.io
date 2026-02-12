@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-![Nate's face](/assets/images/nate-beach-profile.jpeg){: style="float:left; width: 200px; height: 200px; border-radius: 50%; margin-right: 10px"}
+![Nate's face]({{ site.profile_image }}){: style="float:left; width: 200px; height: 200px; border-radius: 50%; margin-right: 10px"}
 
 I've been messing with computers since my Dad brought home a Commodore 64 when I was 10 years old. From there we built several PC's from scratch and I fondly remember us "splurging" for the larger hard disk - 40MB vs 25MB! I think we paid an extra $200, which was a lot of money in the 80's.
 
@@ -23,6 +23,8 @@ I joined AWS in the early days - right before [the first Re:Invent in 2012](http
 After many years at Amazon I moved to Intuit, where I was VP of Engineering for Mint and then TurboTax. I made tons of great friends and Intuit was a great place to be during COVID, since they really care about their employees. But eventually I decided I really wanted to do the startup thing, so now I'm the CTO at [Pipe](https://pipe.com/) leading engineering, product, solutions engineering, and data.
 
 Along the way I've enjoyed more delicious beer and wine than I can remember, and made amazing friends around the world. Most of the code and articles I've written are no longer relevant, but I guess that's technology for you. If you're looking for somebody to help you with a startup, find me at [linkedin/natewiger](https://www.linkedin.com/in/natewiger/)
+
+All the background images are photos I've taken from traveling around and are (c) me.
 
 [^1]: While at Sun my coworker and I wrote a now useless book, [Sun Fire Systems Design and Configuration Guide](https://a.co/d/01UYQAlI).
 

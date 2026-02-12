@@ -6,7 +6,16 @@
       "mcp__context7__query-docs",
       "Bash(curl:*)",
       "Bash(bundle exec jekyll build:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(gem list:*)",
+      "Bash(bundle show:*)",
+      "Bash(gem which:*)",
+      "Bash(xargs dirname:*)",
+      "Bash(grep:*)",
+      "Bash(ruby -c:*)",
+      "Bash(bundle exec jekyll:*)",
+      "Bash(ruby:*)",
+      "Bash(pkill:*)"
     ]
   },
   "plansDirectory": "./_plans"

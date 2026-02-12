@@ -1,0 +1,24 @@
+/* Random background image styling */
+body.has-random-background {
+  background-size: cover; /* Scale to cover viewport, maintaining aspect ratio */
+  background-position: center center; /* Center the image */
+  background-repeat: no-repeat; /* No tiling */
+  background-attachment: fixed; /* Parallax effect - stays fixed while scrolling */
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Ensure content remains readable over background */
+.page-content {
+  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Remove fixed attachment on very small screens for better performance */
+@media (max-width: 480px) {
+  body.has-random-background {
+    background-attachment: scroll; /* Better mobile performance */
+  }
+}
