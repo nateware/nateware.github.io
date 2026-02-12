@@ -16,11 +16,12 @@
   <link rel="stylesheet" href="{{ "/assets/css/background.css" | relative_url }}">
   <script src="{{ "/assets/js/backgrounds.js" | relative_url }}"></script>
   <script>
+    var ASSET_CDN = "{{ site.asset_cdn | default: '' }}";
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof BACKGROUND_IMAGES !== 'undefined' && BACKGROUND_IMAGES.length > 0) {
         var randomIndex = Math.floor(Math.random() * BACKGROUND_IMAGES.length);
         var selectedImage = BACKGROUND_IMAGES[randomIndex];
-        document.body.style.backgroundImage = 'url("' + selectedImage + '")';
+        document.body.style.backgroundImage = 'url("' + ASSET_CDN + selectedImage + '")';
         document.body.classList.add('has-random-background');
       }
     });

@@ -30,6 +30,10 @@ github_username: nateware
 linkedin_username: natewiger
 profile_image: /assets/images/nate-beach-profile.jpeg
 
+# Added by Nate, this specifies a CDN URL for assets. If set, it will be prefixed to
+# asset paths in the head.html include.
+asset_cdn: https://storage.googleapis.com/nateware-blog
+
 # Build settings
 permalink: /:year/:month/:day/:title/
 theme: minima
