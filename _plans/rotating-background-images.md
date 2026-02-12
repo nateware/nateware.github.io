@@ -1,5 +1,9 @@
 # Plan: Random Background Images for Jekyll Site
 
+## Notes
+
+_The actual implementation varied from this plan - I moved everything to a Rakefile rather than a Jekyll plugin due to GitHub restrictions_
+
 ## Context
 
 The user wants to add a random background image feature to their Jekyll blog. The site currently has 165 JPEG images in `assets/backgrounds/` that should be randomly selected and displayed as the page background. The requirement is to create a Jekyll plugin/hook that runs during the build process to generate a list of available images, then use JavaScript to randomly select and apply one of these images on every page load. The background should cover the full viewport while maintaining aspect ratio.
