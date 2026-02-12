@@ -1,5 +1,9 @@
 require 'json'
 require 'fileutils'
+
+# Make sure this matches the asset_cdn bucket name in _config.yml
+ASSET_BUCKET = "nateware-blog"
+
 desc "Generate JavaScript file with background images array"
 task :backgrounds do
   puts "Generating background images JavaScript..."
@@ -38,14 +42,13 @@ end
 
 desc "Sync assets to Google Cloud Storage bucket"
 task :sync_assets do
-  bucket_name = "nateware-blog"
   local_dir = File.join(Dir.pwd, 'assets')
 
-  puts "Syncing assets to Google Cloud Storage bucket: #{bucket_name}"
+  puts "Syncing assets to Google Cloud Storage bucket: #{ASSET_BUCKET}"
   puts "Local directory: #{local_dir}"
 
   # Run gsutil rsync command
-  command = "gcloud storage rsync #{local_dir} gs://#{bucket_name}/assets --recursive"
+  command = "gcloud storage rsync #{local_dir} gs://#{ASSET_BUCKET}/assets --recursive"
   puts "Running command: #{command}"
   system(command) || abort("Error: Failed to sync assets to GCS bucket.")
 end
