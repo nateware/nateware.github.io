@@ -7,7 +7,11 @@ categories: redis technology open-source
 tags: redis ruby open-source
 ---
 
-17 years ago, I created the Ruby gem [redis-objects](https://github.com/nateware/redis-objects) to solve a problem I was having at PlayStation. I never expected to still be maintaining it this many years later — the gem is older than my kids! I just released version 2.0, which got me reflecting on the journey.
+17 years ago, I created the Ruby gem [redis-objects](https://github.com/nateware/redis-objects) to solve a problem I was having at PlayStation. I never expected to still be maintaining it so many years later — the gem is older than my kids! I just released version 2.0, which got me reflecting on the journey.
+
+## What's New in 2.0
+
+Not much, actually - except one breaking change that renames the lock method to `redis_lock`. If you break the public API you have to bump the major version. I thought the history of the library would be interesting though...
 
 ## The Real-Time Leaderboard Problem
 
@@ -17,7 +21,7 @@ Sorting at scale is a genuinely hard problem, and a bunch of PhD dissertations h
 
 Luckily, [Redis](https://redis.io/) was released by the amazing [antirez](https://antirez.com/) right around the same time. It's a genius piece of software — basically network-accessible data structures with very low latency. The [Hacker News history](https://news.ycombinator.com/item?id=35871462) is a great read.
 
-It was immediately apparent to me that [Redis Sorted Sets](https://redis.io/docs/latest/develop/data-types/sorted-sets/) were the ideal solution to sorting player scores. I'm quite confident PlayStation was one of the first users of Redis at scale, and our leaderboard implementation may have been the first one. I wrote [An Atomic Rant](/2010/02/18/an-atomic-rant/) about it, and later published [Real-time Leaderboards with ElastiCache for Redis](https://nateware.com/2013/09/08/real-time-leaderboards-with-elasticache-for-redis/) while at AWS. (I wrote the original [AWS Caching Whitepaper](/assets/docs/performance-at-scale-with-amazon-elasticache.pdf) as well)
+It was immediately apparent to me that [Redis Sorted Sets](https://redis.io/docs/latest/develop/data-types/sorted-sets/) were the ideal solution to sorting player scores. I'm quite confident PlayStation was one of the first users of Redis at scale, and our leaderboard implementation may have been the first one. I wrote [An Atomic Rant](/2010/02/18/an-atomic-rant/) about it, and later published [Real-time Leaderboards with ElastiCache for Redis](https://nateware.com/2013/09/08/real-time-leaderboards-with-elasticache-for-redis/) while at AWS. (I later wrote the [AWS Caching Whitepaper](/assets/docs/performance-at-scale-with-amazon-elasticache.pdf) as well)
 
 So how does `Redis::Objects` fit in? It maps Redis data types to their equivalents in Ruby. You write Ruby code like you normally would, and Redis is used transparently behind the scenes.
 
@@ -36,38 +40,52 @@ leaderboard[0..2]          # => ["Jeff", "Peter", "Nate"]
 leaderboard.rank('Nate')   # => 2
 ```
 
-(I've always loved how beautiful Ruby is, and I've always been surprised it didn't catch on as widely as Python, given it can do all the same stuff. Oh well.)
+Simple and a lot prettier than `redis.zadd` (granted I'm biased).
 
-## What Open Source Has Taught Me About Coding
+## Design by Committee (in a Good Way)
 
-I've been a big proponent of open source since I started coding in Perl in the late 90's (or "late 1900's" as my kids say). Before `Redis::Objects` I released several Perl libraries including [CGI::FormBuilder](https://metacpan.org/pod/CGI::FormBuilder) and [SQL::Abstract](https://metacpan.org/pod/SQL::Abstract).
+Back in 2014, [Felipe Lopes](https://github.com/felipeclopes) filed issue [#150](https://github.com/nateware/redis-objects/issues/150) asking for `connection_pool` support. Felipe opened a PR, but it was a fairly invasive rewrite, and we got stuck on whether it would break key-eval support. The thread sat.
 
-Designing a library so it can be open sourced fundamentally changes how you approach a problem. It forces the code to be configurable, and keeps you from accidentally embedding business logic only relevant to your current company (or project!). You have no idea who's using it, what they're doing with it, or what weird edge cases they'll hit.
+Then a different contributor, [Max Melentiev](https://github.com/printercu), dropped in with a `method_missing`-based proxy approach. [Jared Jenkins](https://github.com/jaredjenkins) jumped in and refined it into a proper `ConnectionProxy` class. The three of them iterated, debating different design tradeoffs. I mostly nudged from the sidelines and reminded them to add tests.
 
-It also gives you a chance to learn from passionate coders you'd never meet otherwise. `Redis::Objects` actually has 85 contributors from around the world (so far). I've met some really cool people over the years who have taught me new approaches and better ways to structure code.
+What shipped as `v1.1.0` was a better design than anything I would have written alone. Plus I didn't even need a connection pool, so I wouldn't have added one! But the library got better because three strangers across different timezones argued about it in a GitHub thread.
 
-The other thing about maintaining open source is that you can't just build something and walk away. Ruby upgrades, Redis changes, new conventions — keeping the library current has been a great forcing function to keep up with the latest tech trends.
+## The Silent Marshal Corruption
+
+I learned one lesson the hard way: once your library is in the wild, you have no idea what data already lives in your users' databases.
+
+In `v0.9.0`, I cleaned up how values were serialized with `marshal: true`. Previously, strings and numbers were stored raw; after the change, everything ran through `Marshal.dump`. It looked like a harmless consistency fix. But it silently broke reads for anyone who upgraded with existing data.
+
+The error was cryptic: `TypeError: incompatible marshal file format (can't be read) — format version 4.8 required; 85.114 given`. Those numbers are the ASCII codes of whatever the stored string happened to start with — the code was trying to read an unmarshaled value as a marshaled blob.
+
+Issue [#147](https://github.com/nateware/redis-objects/issues/147) got filed in 2014. I couldn't reproduce it and closed it. It got reopened. Others confirmed it. Three years later, [Nisanth Chunduru](https://github.com/nisanthchunduru) tracked down the exact commit:
+
+> We had upgraded redis-objects from version 0.5.2 to 0.9.1. [...] 0.5.2 doesn't marshal simple objects like String, Fixnum, Bignum and Float. 0.9.0 changed this behaviour and started marshalling all objects.
+
+The issue thread spans nearly a decade. An [April 2025 comment](https://github.com/nateware/redis-objects/issues/147#issuecomment-2773434610) from another user in Brazil begins "For any lost soul that faces this issue" complete with reproduction steps. I wish I had those steps 10 years ago!
+
+Still, the lesson that you can't change code that deals with data really stuck with me, and was a huge challenge for the next bug.
 
 ## The Nested Class Key Collision Bug
 
-I hit a bug that I was able to quickly diagnose, but the solution stumped me for many years. It was subtle and took years to surface ([#213](https://github.com/nateware/redis-objects/issues/213)).
+This time, users hit a bug that I was able to quickly root cause, but the solution stumped me for a long time. It was subtle and took years to surface ([#231](https://github.com/nateware/redis-objects/issues/231)).
 
-The problmen is the gem generates Redis keys based on class names. For a `Team` class with a `hits` counter, the key might be `team:1:hits`. Simple enough. But what if you have nested classes like `Dog::Behavior` and `Cat::Behavior`? The original key generation logic stripped everything before `::`, so both would generate keys starting with `behavior:` — thus writing to the same Redis keys. This is bad, like crossing the streams in Ghostbusters.
+The problem is the gem generates Redis keys based on class names. For a `Team` class with a `hits` counter, the key might be `team:1:hits`. But what if you have nested classes like `Dog::Behavior` and `Cat::Behavior`? Well, the original key generation logic stripped everything before `::`, so both would generate keys starting with `behavior:` — thus writing to the same Redis keys. This is bad, like [crossing the streams](https://www.youtube.com/watch?v=wyKQe_i9yyo) in Ghostbusters.
 
-How did this happen? From me in 2018:
+How did this happen? From [me in 2018](https://github.com/nateware/redis-objects/issues/231#issuecomment-427695149):
 
-> Nested class names are a problem because I stole the original code from Sinatra, and unfortunately I didn't notice that it cropped the class down past the final ::. Sorry. I am open to a new option something like `full_prefix: true` but unfortunately we can't change the code since that would be backwards incompatible.
+> Nested class names are a problem because I stole the original code from Sinatra, and unfortunately I didn't notice that it cropped the class down past the final `::`. Sorry.
 
-I was stuck trying to release 2.0 for years because my initial fix broke backwards compatibility, despite my comment above. The reality is you just can't do that when data is involved — it's too disruptive. But I couldn't figure out another way.
+I was stuck trying to release 2.0 for *years* because my initial fix broke backwards compatibility. The reality is you just can't do that when data is involved — it's too disruptive. But I couldn't figure out another way.
 
-Luckily, I randomly received a [PR from Matthew Hively](https://github.com/nateware/redis-objects/pull/276) which introduced an option flag that affected users could turn on. Open source community to the rescue! I can confidently say I would not have come up with that idea.
+Luckily, in late 2025, I randomly received a [PR from Matthew Hively](https://github.com/nateware/redis-objects/pull/276) which introduced an option that affected users could turn on. Open source community to the rescue! I can confidently say I would not have come up with that idea. Finally `v2.0.0` could be shipped, almost 8 years later.
 
 ## Why I Keep Doing This
 
-There's something about having built something that's still useful after all this time. Somewhere out there, redis-objects is handling atomic operations for games, e-commerce sites, social networks, and who knows what else. I'll never meet most of the people using it, but knowing it's out there doing useful work feels good.
+I've been a proponent of open source since I started coding in Perl in the late 90's (or "late 1900's" as my kids say). I started by releasing several Perl libraries including [CGI::FormBuilder](https://metacpan.org/pod/CGI::FormBuilder) and [SQL::Abstract](https://metacpan.org/pod/SQL::Abstract). I've since given those away to others, but I still remember fondly all the hours I spent on them.
 
-I'm also incredibly thankful for the people who have contributed over the years. Pull requests, bug reports, issue discussions — all of it has made this gem better than I could have made it alone.
+It's fun to think that [redis-objects](https://github.com/nateware/redis-objects) is being used in games, ecommerce sites, social networks, and who knows what else out there. I'll never meet most of the people using it, but knowing it's out there and being used feels good.
 
-Version 2.0 fixes some longstanding bugs and makes the API more consistent. If you're using redis-objects, check out the [upgrade guide](https://github.com/nateware/redis-objects#important-20-changes) — there are a few breaking changes, but they're worth it.
+I don't know if I'll be maintaining this for another 17 years (I'll be in my 60's after all) or if Ruby will even be around. Maybe AI will replace everything. But in the meantime, sincere thanks to everyone who's used it and contributed to it over the past 17 years.
 
-I don't know if I'll be maintaining this for another 17 years, but I'll probably keep at it for a while longer. It's become part of who I am as an engineer, and I'm not ready to let that go yet.
+And if you need to build a real-time leaderboard, try [redis-objects](https://github.com/nateware/redis-objects) 2.0!
