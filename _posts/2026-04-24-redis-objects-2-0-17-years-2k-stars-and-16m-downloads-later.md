@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "🔴 redis-objects 2.0: 17 years, 2k stars, and 16M downloads later"
+title: "💎 redis-objects 2.0: 17 years, 2k stars, and 16M downloads later"
 date: 2026-04-23 0:00:00 -0800
 author: "Nate Wiger"
 categories: redis technology open-source
 tags: redis ruby open-source
 ---
 
-17 years ago, I created the Ruby gem [redis-objects](https://github.com/nateware/redis-objects) to solve a problem I was having at PlayStation. I never expected to still be maintaining it so many years later — the gem is older than my kids! I just released version 2.0, which got me reflecting on the journey.
+17 years ago, I created the Ruby gem [redis-objects](https://github.com/nateware/redis-objects) to solve a problem I was having at PlayStation. I never expected to still be maintaining it so many years later — the gem is older than my kids! I just released version 2.0, which got me reflecting on the journey and lessons learned.
 
 ## What's New in 2.0
 
