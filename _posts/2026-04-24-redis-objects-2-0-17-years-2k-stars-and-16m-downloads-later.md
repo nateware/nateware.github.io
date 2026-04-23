@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🔴 redis-objects 2.0: 17 years, 2k stars, and 16M downloads later"
-date: 2026-04-24 12:00:00 -0800
+date: 2026-04-23 0:00:00 -0800
 author: "Nate Wiger"
 categories: redis technology open-source
 tags: redis ruby open-source
