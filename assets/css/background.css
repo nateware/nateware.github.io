@@ -9,7 +9,7 @@ body.has-random-background {
 
 /* Ensure content remains readable over background */
 .page-content {
-  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.88); /* Semi-transparent white */
   padding: 20px;
   margin: 20px auto;
   border-radius: 8px;
