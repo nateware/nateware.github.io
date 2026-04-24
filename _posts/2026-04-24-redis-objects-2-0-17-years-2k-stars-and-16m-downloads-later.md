@@ -44,7 +44,7 @@ Simple and a lot prettier than `redis.zadd` (granted I'm biased).
 
 ## Design by Committee (in a Good Way)
 
-Back in 2014, [Felipe Lopes](https://github.com/felipeclopes) filed issue [#150](https://github.com/nateware/redis-objects/issues/150) asking for `connection_pool` support. Felipe opened a PR, but it was a fairly invasive rewrite, and we got stuck as it would break some core functionality.
+Then in 2014, [Felipe Lopes](https://github.com/felipeclopes) filed issue [#150](https://github.com/nateware/redis-objects/issues/150) asking for `connection_pool` support. Felipe opened a PR, but it was a fairly invasive rewrite, and we got stuck as it would break some core functionality.
 
 Then a different contributor, [Max Melentiev](https://github.com/printercu), jumped in with a `method_missing`-based approach. [Jared Jenkins](https://github.com/jaredjenkins) refined it into a proper `ConnectionProxy` class. The three of them iterated, debating different design tradeoffs. My big contribution was reminding them to write tests.
 
@@ -54,7 +54,7 @@ What shipped as `v1.1.0` was a better design than anything I would have written 
 
 I learned one lesson the hard way: once your library is in the wild, you have no idea what data already lives in your users' databases.
 
-In `v0.9.0`, I cleaned up how values were serialized with `marshal: true`. Previously, strings and numbers were stored raw; after the change, everything ran through `Marshal.dump`. It seemed like a harmless consistency fix, and solved some other edge cases. But it silently broke reads for anyone who upgraded with existing numbers and strings in Redis.
+In `v0.9.0` (Sep 2017), I cleaned up how values were serialized with `marshal: true`. Previously, strings and numbers were stored raw; after the change, everything ran through `Marshal.dump`. It seemed like a harmless consistency fix, and solved some other edge cases. But it silently broke reads for anyone who upgraded with existing numbers and strings in Redis.
 
 The error was cryptic: `TypeError: incompatible marshal file format (can't be read) — format version 4.8 required; 85.114 given`. Turns out, those numbers are the ASCII codes of whatever the stored string happened to start with — the code was trying to read an unmarshaled value as a marshaled blob.
 
@@ -68,9 +68,9 @@ Still, the lesson that you can't change code that deals with data stuck with me,
 
 ## The Nested Class Key Collision Bug
 
-This time, users hit a bug that I was able to root cause, but the solution stumped me for a long time. The bug was subtle and took years to surface ([#231](https://github.com/nateware/redis-objects/issues/231)).
+This time, users hit a bug that I was able to easily root cause, but the solution stumped me for a long time. The bug was subtle and took years to surface ([#231](https://github.com/nateware/redis-objects/issues/231)).
 
-The problem is the gem generates Redis key names based on Ruby class names. For a `Team` class with a `hits` counter, the key might be `team:1:hits`. But what if you have nested classes like `Dog::Behavior` and `Cat::Behavior`? Well, the key generation logic stripped everything before `::`, so both would generate keys starting with `behavior:` — thus writing to the same Redis keys. This is bad, like [crossing the streams](https://www.youtube.com/watch?v=wyKQe_i9yyo) in Ghostbusters.
+The problem is the gem generates Redis key names based on Ruby class names. For a `Team` class with a `hits` counter, the key might be `team:1:hits`. But what if you have nested classes like `Dog::Behavior` and `Cat::Behavior`? Well, the key generation logic stripped everything up to `::`, so both would generate keys starting with `behavior:` — thus writing to the same Redis keys! This is bad, like [crossing the streams](https://www.youtube.com/watch?v=wyKQe_i9yyo) in Ghostbusters.
 
 How did this happen? From [me in 2018](https://github.com/nateware/redis-objects/issues/231#issuecomment-427695149):
 
