@@ -26,7 +26,8 @@ It was immediately apparent to me that [Redis Sorted Sets](https://redis.io/docs
 So how does `Redis::Objects` fit in? It maps Redis data types to their equivalents in Ruby. You write Ruby code like you normally would, and Redis is used transparently behind the scenes.
 
 ```ruby
-leaderboard = Redis::SortedSet.new('leaderboard')
+leaderboard
+   = Redis::SortedSet.new('leaderboard')
 
 # Set the players' scores
 leaderboard['Nate']  = 15378
@@ -34,10 +35,10 @@ leaderboard['Peter'] = 17522
 leaderboard['Jeff']  = 19405
 
 # Show players in ranked order
-leaderboard[0..2]          # => ["Jeff", "Peter", "Nate"]
+leaderboard[0..2] # ["Jeff", "Peter", "Nate"]
 
 # Find my position in the leaderboard
-leaderboard.rank('Nate')   # => 2
+leaderboard.rank('Nate') # 2
 ```
 
 Simple and a lot prettier than `redis.zadd` (granted I'm biased).
@@ -76,7 +77,7 @@ How did this happen? From [me in 2018](https://github.com/nateware/redis-objects
 
 > Nested class names are a problem because I stole the original code from Sinatra, and unfortunately I didn't notice that it cropped the class down past the final `::`. Sorry.
 
-I was stuck trying to release 2.0 for *years* because my initial fix broke backwards compatibility. As I had learned, you can't do that when data is involved, it's too disruptive. But I couldn't figure out another way.
+I was stuck trying to release 2.0 for _years_ because my initial fix broke backwards compatibility. As I had learned, you can't do that when data is involved, it's too disruptive. But I couldn't figure out another way.
 
 Luckily, in late 2025, I received an out-of-the-blue [PR from Matthew Hively](https://github.com/nateware/redis-objects/pull/276) which introduced an option that people with nested classes could use. Open source community to the rescue! I can confidently say I would not have come up with that idea. Finally `v2.0.0` could be shipped, almost 8 years later.
 

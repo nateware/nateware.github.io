@@ -3,9 +3,17 @@ img {
   height: auto;
 }
 
-pre, code {
-  max-width: 100%;
+.page-content, .post-content {
+  overflow-x: hidden;
+}
+
+pre {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+code {
+  word-break: break-word;
 }
 
 header.site-header {
