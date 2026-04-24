@@ -7,7 +7,7 @@ categories: redis technology open-source
 tags: redis ruby open-source
 ---
 
-17 years ago, I created the Ruby gem [redis-objects](https://github.com/nateware/redis-objects) to solve a problem I was having at PlayStation. I never expected to still be maintaining it so many years later — it's older than my kids! I just released version 2.0, which got me reflecting on the journey and lessons learned.
+17 years ago, I created the Ruby library [redis-objects](https://github.com/nateware/redis-objects) to solve a problem I was having at PlayStation. I never expected to still be maintaining it so many years later — it's older than my kids! I just released version 2.0, which got me reflecting on the journey and lessons learned.
 
 ## What's New in 2.0
 
