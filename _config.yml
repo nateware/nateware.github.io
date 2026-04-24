@@ -27,6 +27,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: nateware
 github_username: nateware
+google_analytics: G-BB990M3KTD
 linkedin_username: natewiger
 profile_image: /assets/images/nate-beach-profile.jpeg
 
