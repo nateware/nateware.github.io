@@ -3,17 +3,12 @@ img {
   height: auto;
 }
 
-.page-content, .post-content {
-  overflow-x: hidden;
-}
-
-pre {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-code {
-  word-break: break-word;
+@media (max-width: 600px) {
+  pre, pre code {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 }
 
 header.site-header {
