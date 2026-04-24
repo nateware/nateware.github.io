@@ -44,7 +44,7 @@ Simple and a lot prettier than `redis.zadd` (granted I'm biased).
 
 ## Design by Committee (in a Good Way)
 
-Then in 2014, [Felipe Lopes](https://github.com/felipeclopes) filed issue [#150](https://github.com/nateware/redis-objects/issues/150) asking for `connection_pool` support. Felipe opened a PR, but it was a fairly invasive rewrite, and we got stuck as it would break some core functionality.
+In 2014, [Felipe Lopes](https://github.com/felipeclopes) filed issue [#150](https://github.com/nateware/redis-objects/issues/150) asking for `connection_pool` support. Felipe opened a PR, but it was a fairly invasive rewrite, and we got stuck as it would break some core functionality.
 
 Then a different contributor, [Max Melentiev](https://github.com/printercu), jumped in with a `method_missing`-based approach. [Jared Jenkins](https://github.com/jaredjenkins) refined it into a proper `ConnectionProxy` class. The three of them iterated, debating different design tradeoffs. My big contribution was reminding them to write tests.
 
