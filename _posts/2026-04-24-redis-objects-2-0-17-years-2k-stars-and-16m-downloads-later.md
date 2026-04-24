@@ -44,7 +44,7 @@ Simple and a lot prettier than `redis.zadd` (granted I'm biased).
 
 In 2014, [Felipe Lopes](https://github.com/felipeclopes) filed issue [#150](https://github.com/nateware/redis-objects/issues/150) asking for `connection_pool` support. Felipe opened a PR, but it was a fairly invasive rewrite, and we got stuck as it would break some core functionality.
 
-Then a different contributor, [Max Melentiev](https://github.com/printercu), jumped in with a `method_missing`-based approach. [Jared Jenkins](https://github.com/jaredjenkins) refined it into a proper `ConnectionProxy` class. The three of them iterated, debating different design tradeoffs. My big contribution was reminding them to write tests.
+Then [Max Melentiev](https://github.com/printercu) jumped in with a `method_missing`-based approach, and [Jared Jenkins](https://github.com/jaredjenkins) refined it into a proper `ConnectionProxy` class. The three of them iterated, debating different design tradeoffs. My big contribution was reminding them to write tests.
 
 What shipped as `v1.1.0` was a better design than anything I would have written alone. Plus I didn't even need a connection pool, so I wouldn't have added one in the first place! But the library got better because three strangers across different timezones argued about it in a GitHub thread.
 
