@@ -27,15 +27,12 @@ So how does `Redis::Objects` fit in? It maps Redis data types to their equivalen
 
 ```ruby
 leaderboard
-   = Redis::SortedSet.new('leaderboard')
+  = Redis::SortedSet.new('leaderboard')
 
 # Set the players' scores
 leaderboard['Nate']  = 15378
 leaderboard['Peter'] = 17522
 leaderboard['Jeff']  = 19405
-
-# Show players in ranked order
-leaderboard[0..2] # ["Jeff", "Peter", "Nate"]
 
 # Find my position in the leaderboard
 leaderboard.rank('Nate') # 2
